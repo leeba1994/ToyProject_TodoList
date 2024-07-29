@@ -8,7 +8,6 @@ import lombok.Data;
 public class RespGetTodolistsDto {
     private int todolistId;
     private String content;
-    private int userId;
     private String registerDate;
     private int checkedState;
 }

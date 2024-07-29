@@ -6,7 +6,7 @@ import MainContainer from './components/MainContainer/MainContainer';
 import Header from './components/Header/Header';
 import AllTodolist from './components/AllTodolist/AllTodolist';
 import TodolistInput from './components/TodolistInput/TodolistInput';
-import CheckedTodolist from './components/CheckedTodolist/AllTodolist';
+import CheckedTodolist from './components/CheckedTodolist/CheckedTodolist';
 import { useState } from 'react';
 
 function App() {

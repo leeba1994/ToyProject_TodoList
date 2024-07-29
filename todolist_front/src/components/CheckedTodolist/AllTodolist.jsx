@@ -1,8 +1,17 @@
-import React from 'react';
+import React, { useState } from 'react';
 /** @jsxImportSource @emotion/react */
 import * as s from "./style";
 
-function CheckedTodolist(props) {
+function CheckedTodolist({ todolists }) {
+    // const [ changeState, setChangeState ] = useState({
+    //     todolistId: "",
+    //     checkedState: 1
+    // });
+
+    // const handleChangeStateSubmitClick = () => {
+
+    // }
+
     return (
         <div css={s.container}>
             {/* <h1>TODO LIST</h1>

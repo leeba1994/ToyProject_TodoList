@@ -12,6 +12,7 @@ import { useState } from 'react';
 function App() {
   const [ checkedId, setCheckedId ] = useState(0);
   const [ todolists, setTodolists ] = useState([]);
+  console.log(todolists);
   return (
     <>
       <Global styles={reset}/>

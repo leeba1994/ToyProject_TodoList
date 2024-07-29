@@ -2,7 +2,8 @@ import React from 'react';
 /** @jsxImportSource @emotion/react */
 import * as s from "./style";
 
-function AllTodolist(props) {
+function AllTodolist({ todolists }) {
+    
     return (
         <div css={s.container}>
             {/* <h1>TODO LIST</h1>

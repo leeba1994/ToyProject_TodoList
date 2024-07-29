@@ -17,7 +17,7 @@ function App() {
       <Global styles={reset}/>
       <MainLayout>
         <Header checkedId={checkedId} setCheckedId={setCheckedId} setTodolists={setTodolists}  />
-        <TodolistInput />
+        <TodolistInput todolists={todolists} setTodolists={setTodolists} />
         <MainContainer>
           <AllTodolist todolists={todolists} setTodolists={setTodolists}/>
           <CheckedTodolist todolists={todolists} setTodolists={setTodolists}/>

@@ -26,6 +26,7 @@ function CheckedTodolist({ todolists }) {
                 <div css={s.buttonBox}>
                     <button css={s.button}>수정</button>
                     <button css={s.button}>삭제</button>
+                    <button css={s.button}>확인</button>
                 </div>
             </div>
         </div>

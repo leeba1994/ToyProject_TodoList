@@ -112,7 +112,8 @@ function Header({ checkedId, setCheckedId, setTodolists}) {
         })
         closeModal();
     }
-    const requestGetUser = async () => {
+
+    const handleLoginSubmitClick = async () => {
         try {
             const response = await axios.get("http://localhost:8080/api/v1/login", {params: userparams});
             console.log(response.data);
@@ -126,11 +127,6 @@ function Header({ checkedId, setCheckedId, setTodolists}) {
             userPassword: ""
         })
         closeModal();
-    }
-
-
-    const handleLoginSubmitClick = async () => {
-        await requestGetUser();
     }
 
     const handleLogoutClick = () => {

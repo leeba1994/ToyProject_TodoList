@@ -10,5 +10,7 @@ export const reset = css`
         background-color: #fafafa;
         font-size: 16px;
     }
+
+    
 `;
     

@@ -14,6 +14,7 @@ export const listBox = css`
     display: flex;
     justify-content: space-between;
     box-sizing: border-box;
+    margin-bottom: 10px;
     border: 1px solid #dbdbdb;
     width: 100%;
     height: 100px;
@@ -21,7 +22,6 @@ export const listBox = css`
 
 export const ipBox = css`
     display: flex;
-
 `;
 
 export const checkbox = css`
@@ -38,7 +38,7 @@ export const buttonBox = css`
     box-sizing: border-box;
     margin-top: 65px;
     margin-right: 10px;
-    width: 85px;
+    width: 130px;
 
 `;
 

@@ -40,6 +40,7 @@ function AllTodolist({ setTodolists, filterTodolists }) {
         })
     }
 
+
     const handleCheckBoxChange = (e) => {
         setCheckedBox(e.target.checked ? e.target.value : 0);
     }
@@ -90,7 +91,6 @@ function AllTodolist({ setTodolists, filterTodolists }) {
         requestAllTodolist();
         alert("삭제 완료");
     }
-
     return (
         <div css={s.container}>
              <ReactModal
@@ -135,6 +135,7 @@ function AllTodolist({ setTodolists, filterTodolists }) {
                             </div> : <div></div>
                         }
                         
+
                     </div>
                 )
             }

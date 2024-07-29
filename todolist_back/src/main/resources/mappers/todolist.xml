@@ -4,18 +4,37 @@
         "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.toyproject.todolist.repository.TodolistMapper">
     <insert id="save" parameterType="com.toyproject.todolist.entity.Todolist">
-        insert into todolist_tb values(0, #{content}, #{userId}, #{registerDate}, #{checkedState})
+        insert into todolist_tb values(0, #{content}, #{registerDate}, #{checkedState})
     </insert>
-    <select id="findTodolistById" resultType="com.toyproject.todolist.entity.Todolist">
+    <update id="update" parameterType="com.toyproject.todolist.entity.Todolist" >
+        update todolist_tb
+        set
+            checkedState = 1
+        where
+            todolistId = #{todolistId}
+    </update>
+    <update id="updateTodolist" parameterType="com.toyproject.todolist.entity.Todolist">
+        update todolist_tb
+        set
+            content = #{content},
+            registerDate = #{registerDate}
+        where
+            todolistId = #{todolistId}
+    </update>
+    <delete id="deleteTodolist" parameterType="integer" >
+        delete
+        from
+            todolist_tb
+        where
+            todolistId = #{todolistId}
+    </delete>
+    <select id="findTodolists" resultType="com.toyproject.todolist.entity.Todolist">
         select
             todolistId,
             content,
-            userId,
             registerDate,
             checkedState
         from
             todolist_tb
-        where
-            userId = #{checkedId}
     </select>
 </mapper>

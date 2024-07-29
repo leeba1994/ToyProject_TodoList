@@ -10,18 +10,17 @@ import CheckedTodolist from './components/CheckedTodolist/CheckedTodolist';
 import { useState } from 'react';
 
 function App() {
-  const [ checkedId, setCheckedId ] = useState(0);
   const [ todolists, setTodolists ] = useState([]);
-  console.log(todolists);
+  const [ filterTodolists, setFilterTodolists ] = useState([]);
   return (
     <>
       <Global styles={reset}/>
       <MainLayout>
-        <Header checkedId={checkedId} setCheckedId={setCheckedId} setTodolists={setTodolists}  />
-        <TodolistInput todolists={todolists} setTodolists={setTodolists} />
+        <Header setTodolists={setTodolists} />
+        <TodolistInput todolists={todolists} setTodolists={setTodolists} setFilterTodolists={setFilterTodolists} />
         <MainContainer>
-          <AllTodolist todolists={todolists} setTodolists={setTodolists}/>
-          <CheckedTodolist todolists={todolists} setTodolists={setTodolists}/>
+          <AllTodolist setTodolists={setTodolists} filterTodolists={filterTodolists}/>
+          <CheckedTodolist setTodolists={setTodolists} filterTodolists={filterTodolists}/>
         </MainContainer>
       </MainLayout>
     </>

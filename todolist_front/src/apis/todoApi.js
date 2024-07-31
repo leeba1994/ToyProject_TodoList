@@ -64,3 +64,16 @@ export async function deleteTodo(data) {
 
     return response;
 }
+
+export async function searchTodo(data) {
+    let response = null;
+
+    try {
+        response = await api.get(`/search/todolist`, {params: data});
+    } catch(e) {
+        console.error(e);
+        response = e.response;
+    }
+
+    return response;
+}

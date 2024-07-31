@@ -10,7 +10,7 @@ public interface TodoService {
     int updateTodo(ReqUpdateTodoDto reqUpdateTodoDto);
     int deleteTodo(int todoId);
     List<RespGetTodoDto> getlist(ReqGetTodolistDto reqGetTodolistDto);
-    List<RespGetTodoDto> searchTodolist(ReqSearchTodolistDto reqSearchTodolistDto);
+    List<RespGetTodoDto> searchTodo(ReqSearchTodoDto reqSearchTodoDto);
 
 
 }

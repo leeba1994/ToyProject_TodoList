@@ -6,4 +6,8 @@ export const container = css`
     display: flex;
     justify-content: space-between;
     padding: 10px;
+    overflow-y: auto;
+    ::-webkit-scrollbar {
+        display: none;
+    }
 `;

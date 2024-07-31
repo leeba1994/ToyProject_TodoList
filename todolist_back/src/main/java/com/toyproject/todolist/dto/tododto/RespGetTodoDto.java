@@ -14,4 +14,5 @@ public class RespGetTodoDto {
     private String content;
     private String registerDate;
     private int state;
+    private int userId;
 }

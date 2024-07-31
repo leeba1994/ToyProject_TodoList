@@ -41,12 +41,8 @@ public class TodoServiceImpl implements TodoService {
     }
 
     @Override
-    public List<RespGetTodoDto> searchTodolist(ReqSearchTodolistDto reqSearchTodolistDto) {
-        Todo todolist = Todo.builder()
-                .content(reqSearchTodolistDto.getSearchText())
-                .build();
-
-        List<Todo> todolists = todoMapper.findTodolistBycontent(todolist);
-        return todolists.stream().map(Todo::toRespGetTodoDto).collect(Collectors.toList());
+    public List<RespGetTodoDto> searchTodo(ReqSearchTodoDto reqSearchTodoDto) {
+        List<Todo> todolist = todoMapper.findTodolistBycontent(reqSearchTodoDto.toEntity());
+        return todolist.stream().map(Todo::toRespGetTodoDto).collect(Collectors.toList());
     }
 }

@@ -39,18 +39,21 @@
         where
             userId = #{userId}
             and registerDate = #{registerDate}
+        order by
+            todoId desc
     </select>
     <select id="findTodolistBycontent" resultType="com.toyproject.todolist.entity.Todo">
         select
             todoId,
             content,
             registerDate,
-            state
+            state,
+            userId
         from
             todolist_tb
         where
-            content like concat("%", #{content}, "%")
+            content like concat("%", #{content}, "%") and userId = #{userId} and registerDate = #{registerDate}
         order by
-            todoId
+            todoId desc
     </select>
 </mapper>

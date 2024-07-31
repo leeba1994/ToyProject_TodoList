@@ -2,6 +2,7 @@ package com.toyproject.todolist.controller;
 
 import com.toyproject.todolist.dto.tododto.ReqGetTodolistDto;
 import com.toyproject.todolist.dto.tododto.ReqRegisterTodoDto;
+import com.toyproject.todolist.dto.tododto.ReqSearchTodolistDto;
 import com.toyproject.todolist.dto.tododto.ReqUpdateTodoDto;
 import com.toyproject.todolist.service.TodoService;
 import lombok.extern.slf4j.Slf4j;
@@ -44,6 +45,12 @@ public class TodolistController {
     public ResponseEntity<?> deleteTodo(@PathVariable int todoId) {
         log.info("{}", todoId);
         return ResponseEntity.ok().body(todoService.deleteTodo(todoId));
+    }
+
+    @GetMapping("/search/todolist")
+    public ResponseEntity<?> searchTodoList(ReqSearchTodolistDto reqSearchTodolistDto) {
+        log.info("{}", reqSearchTodolistDto);
+        return ResponseEntity.ok().body(todoService.searchTodolist(reqSearchTodolistDto));
     }
 
 }

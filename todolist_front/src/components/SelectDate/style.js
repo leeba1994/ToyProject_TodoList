@@ -12,5 +12,19 @@ export const layout = css`
 `;
 
 export const dateinput = css`
+    margin: 0px 7px;
     width: 500px;
 `;
+
+export const arrow = css`
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+    &:hover {
+        color: #3b3a3aff;
+    }
+    &:active {
+        color: #817f7f;
+    }
+`;
+

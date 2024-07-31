@@ -40,4 +40,17 @@
             userId = #{userId}
             and registerDate = #{registerDate}
     </select>
+    <select id="findTodolistBycontent" resultType="com.toyproject.todolist.entity.Todo">
+        select
+            todoId,
+            content,
+            registerDate,
+            state
+        from
+            todolist_tb
+        where
+            content like concat("%", #{content}, "%")
+        order by
+            todoId
+    </select>
 </mapper>

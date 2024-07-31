@@ -1,9 +1,6 @@
 package com.toyproject.todolist.service;
 
-import com.toyproject.todolist.dto.tododto.ReqGetTodolistDto;
-import com.toyproject.todolist.dto.tododto.ReqRegisterTodoDto;
-import com.toyproject.todolist.dto.tododto.ReqUpdateTodoDto;
-import com.toyproject.todolist.dto.tododto.RespGetTodoDto;
+import com.toyproject.todolist.dto.tododto.*;
 import com.toyproject.todolist.entity.Todo;
 import com.toyproject.todolist.repository.TodoMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -41,5 +38,15 @@ public class TodoServiceImpl implements TodoService {
     public List<RespGetTodoDto> getlist(ReqGetTodolistDto reqGetTodolistDto) {
         List<Todo> lists = todoMapper.findTodolist(reqGetTodolistDto.toEntity());
         return lists.stream().map(Todo::toRespGetTodoDto).collect(Collectors.toList());
+    }
+
+    @Override
+    public List<RespGetTodoDto> searchTodolist(ReqSearchTodolistDto reqSearchTodolistDto) {
+        Todo todolist = Todo.builder()
+                .content(reqSearchTodolistDto.getSearchText())
+                .build();
+
+        List<Todo> todolists = todoMapper.findTodolistBycontent(todolist);
+        return todolists.stream().map(Todo::toRespGetTodoDto).collect(Collectors.toList());
     }
 }

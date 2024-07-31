@@ -1,4 +1,4 @@
-package com.toyproject.todolist.entity;
+package com.toyproject.todolist.dto.tododto;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -9,10 +9,9 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Builder
 @Data
-public class Todolist {
-    private int todolistId;
+public class RespGetTodoDto {
+    private int todoId;
     private String content;
-    private int userId;
     private String registerDate;
-    private int checkedState;
+    private int state;
 }

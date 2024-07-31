@@ -8,6 +8,7 @@ export const container = css`
     width: 50%;
     height: 100%;
     background-color: #fafafa;
+    overflow-y: auto;
 `;
 
 export const listBox = css`
@@ -22,6 +23,7 @@ export const listBox = css`
 
 export const ipBox = css`
     display: flex;
+
 `;
 
 export const checkbox = css`

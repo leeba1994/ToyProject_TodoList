@@ -1,100 +1,69 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 /** @jsxImportSource @emotion/react */
 import * as s from "./style";
-import { css } from '@emotion/react';
-import axios from 'axios';
+import { useRecoilState } from 'recoil';
+import { userAtom } from '../../atoms/userAtoms';
 import ReactModal from 'react-modal';
+import { invalidateSessionApi } from '../../apis/userApi';
+import LoginModal from '../LoginModal/LoginModal';
+import RegisterModal from '../RegisterModal/RegisterModal';
+import WriteModal from '../WriteModal/WriteModal';
 ReactModal.setAppElement("#root");
 
-function Header({ setTodolists }) {
-    const [ todolistModal, setTodolistModal ] = useState(false);
-    const [ todolistInput, setTodolistInput ] = useState({
-        content: "",
-        registerDate: "",
-        checkedState: 0
-    });
-
-    useEffect(() => { 
-        requestAllTodolist();
-    }, [])
-
-    const handleTodolistClick = () => {
-        setTodolistModal(true);
-    }
-
+function Header(props) {
+    const [ user, setUser ] = useRecoilState(userAtom)
+    
+    const [ registerModal, setRegisterModal ] = useState(false); 
+    const [ loginModal, setloginModal ] = useState(false);
+    const [ writeModal, setWriteModal ] = useState(false); 
+    
     const closeModal = () => {
-        setTodolistModal(false);
+        setRegisterModal(false);
+        setloginModal(false);
+        setWriteModal(false);
     }
 
-
-    const handleTodolistInputOnChange = (e) => {
-        setTodolistInput(todolistInput => {
-            return {
-                ...todolistInput,
-                [e.target.name]: e.target.value
-            }
-        })
+    const openRegisterModal = () => {
+        setRegisterModal(true);
     }
 
-    const requestAllTodolist = async () => {
-        try {
-            const response = await axios.get("http://localhost:8080/api/v1/todolist")
-            setTodolists(response.data);
-            console.log(response.data)
-        } catch(e) {
-            console.error(e);
-        }
+    const openLoginModal = () => {
+        setloginModal(true);
     }
 
-    const handleTodolistSubmitClick = async () => {
-        try {
-            const response = await axios.post("http://localhost:8080/api/v1/todo", todolistInput);
+    const onpenWriteModal = () => {
+        setWriteModal(true);
+    }
+
+    const handleLogoutClick = async () => {
+        try { 
+            const response = await invalidateSessionApi();
             console.log(response.data);
+            setUser("");
         } catch(e) {
             console.error(e);
         }
-        setTodolistInput({
-            content: "",
-            registerDate: "",
-            checkedState: 0
-        })
-        requestAllTodolist();
-        closeModal();        
     }
-
     return (
-        <>
-            <ReactModal
-                style={{
-                    content: {
-                    boxSizing: 'border-box',
-                    transform: 'translate(-50%, -50%)',
-                    top: '50%',
-                    left: '50%',
-                    padding: '20px',
-                    width: '300px',
-                    height: '300px',
-                    backgroundColor: '#fafafa',
-                    }
-                }}
-                isOpen={todolistModal}
-                onRequestClose={closeModal}
-            >
-                <div css={css`display: flex; flex-direction: column; justify-content: center; align-items:center; height: 100%;`}>
-                    <h2>TO-DO-LIST</h2>
-                    <input type="text" name='content' onChange={handleTodolistInputOnChange} value={todolistInput.content} placeholder='해야 할 일 입력'/>
-                    <input type="month" name='registerDate' onChange={handleTodolistInputOnChange} value={todolistInput.registerDate}/>
-                    <div>
-                        <button onClick={handleTodolistSubmitClick}>작성하기</button>
-                        <button onClick={closeModal}>취소</button>
-                    </div>
-                </div>        
-            </ReactModal>
+        <>  
+            <LoginModal loginModal={loginModal} closeModal={closeModal}/>
+            <RegisterModal registerModal={registerModal} closeModal={closeModal}/>
+            <WriteModal writeModal={writeModal} closeModal={closeModal}/>
             <div css={s.layout}> 
                 <h2 css={s.logo}>To Do List</h2>
-                <div css={s.nav}>
-                    <p css={s.link} onClick={handleTodolistClick}>글쓰기</p>
-                </div>
+                {
+                    !!user ? 
+                        <div css={s.nav}>
+                            <p css={s.link}>{user.userName}님 환영합니다.</p>
+                            <p css={s.link} onClick={onpenWriteModal}>WRITE</p>
+                            <p css={s.link} onClick={handleLogoutClick}>LOGOUT</p>
+                        </div> 
+                    :
+                        <div css={s.nav}>
+                            <p css={s.link} onClick={openLoginModal} >LOGIN</p>
+                            <p css={s.link} onClick={openRegisterModal}>REGISTER</p>
+                        </div>
+                }
             </div>
         </>
     );

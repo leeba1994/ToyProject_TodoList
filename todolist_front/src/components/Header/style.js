@@ -30,3 +30,14 @@ export const link = css`
     font-size: 16px;
     cursor: pointer;
 `;
+
+export const modal = css`
+    box-sizing: 'border-box';
+    transform: 'translate(-50%, -50%)';
+    top: '50%';
+    left: '50%';
+    padding: '20px';
+    width: '300px';
+    height: '300px';
+    background-color: '#fafafa';
+`;

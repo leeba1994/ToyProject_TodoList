@@ -2,27 +2,26 @@ import { Global } from '@emotion/react';
 import './App.css';
 import { reset } from "./styles/global";
 import MainLayout from './components/MainLayout/MainLayout';
-import MainContainer from './components/MainContainer/MainContainer';
 import Header from './components/Header/Header';
-import AllTodolist from './components/AllTodolist/AllTodolist';
-import TodolistInput from './components/TodolistInput/TodolistInput';
-import CheckedTodolist from './components/CheckedTodolist/CheckedTodolist';
-import { useState } from 'react';
+import MainContainer from './components/MainContainer/MainContainer';
+import LoginHook from './hooks/LoginHook';
+import SelectDate from './components/SelectDate/SelectDate';
+import Todolist from './components/Todolist/Todolist';
+import ClearedTodolist from './components/ClearedTodolist/ClearedTodolist';
 
 function App() {
-  const [ todolists, setTodolists ] = useState([]);
-  const [ filterTodolists, setFilterTodolists ] = useState([]);
+  LoginHook();
   return (
     <>
       <Global styles={reset}/>
-      <MainLayout>
-        <Header setTodolists={setTodolists} />
-        <TodolistInput todolists={todolists} setTodolists={setTodolists} setFilterTodolists={setFilterTodolists} />
-        <MainContainer>
-          <AllTodolist setTodolists={setTodolists} filterTodolists={filterTodolists}/>
-          <CheckedTodolist setTodolists={setTodolists} filterTodolists={filterTodolists}/>
-        </MainContainer>
-      </MainLayout>
+        <MainLayout>
+          <Header />
+          <SelectDate />
+          <MainContainer>
+            <Todolist />
+            <ClearedTodolist />
+          </MainContainer>
+        </MainLayout>
     </>
   );
 }

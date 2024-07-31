@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { FaArrowAltCircleLeft, FaArrowAltCircleRight } from "react-icons/fa";
 /** @jsxImportSource @emotion/react */
 import * as s from "./style";
 import { useRecoilState } from 'recoil';
@@ -10,6 +11,7 @@ function SelectDate() {
     const [ user, setUser ] = useRecoilState(userAtom);
     const [ todolist, setTodolist ] = useRecoilState(todolistAtom);
     const [ params, setParams ] = useRecoilState(todoParamsAtom);
+
 
     const getTodolist = async () => {
         const response = await todolistApi(params);
@@ -29,12 +31,47 @@ function SelectDate() {
         })
         getTodolist();
     }
+
+    const handleaddArrowOnClick = () => {
+        
+        // const registerDate = nowYearAndMonth.year + "-" + (nowYearAndMonth.month >= 10 ? nowYearAndMonth.month : "0" + nowYearAndMonth.month);
+
+        setParams( params => {
+            const date = new Date(params.registerDate);
+            date.setMonth(date.getMonth() + 1);
+            const newdate = date.getFullYear() + "-" + ((date.getMonth() + 1) >= 10 ? (date.getMonth() + 1) : "0" + (date.getMonth() + 1));
+            // console.log(newDate)
+            return {
+                ...params,
+                registerDate: newdate
+            }
+        })
+    }
+
+    const handleArrowOnClick = () => {
+        
+        // const registerDate = nowYearAndMonth.year + "-" + (nowYearAndMonth.month >= 10 ? nowYearAndMonth.month : "0" + nowYearAndMonth.month);
+
+        setParams( params => {
+            const date = new Date(params.registerDate);
+            date.setMonth(date.getMonth() - 1);
+            const newdate = date.getFullYear() + "-" + ((date.getMonth() + 1) >= 10 ? (date.getMonth() + 1) : "0" + (date.getMonth() + 1));
+            // console.log(newDate)
+            return {
+                ...params,
+                registerDate: newdate
+            }
+        })
+    }
+
     return (
         <>
             <div css={s.layout}>
-                <div>
+                
+                <FaArrowAltCircleLeft css={s.arrow} onClick={handleArrowOnClick}  />
                     <input type="month" name='registerDate' onChange={handleInputOnChange} css={s.dateinput} value={params.registerDate} />
-                </div>
+                <FaArrowAltCircleRight css={s.arrow} onClick={handleaddArrowOnClick} />
+                
             </div>
         </>
     );

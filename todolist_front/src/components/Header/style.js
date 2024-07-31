@@ -41,3 +41,22 @@ export const modal = css`
     height: '300px';
     background-color: '#fafafa';
 `;
+
+export const searchInput = css`
+    cursor: pointer;
+`;
+
+export const searchButton = css`
+    box-sizing: border-box;
+    margin-right: 10px;
+    border: 1px solid #dbdbdb;
+    background-color: #ffffff;
+    cursor: pointer;
+
+    &:hover {
+        background-color: #fafafa;
+    }
+    &:active {
+        background-color: #eeeeee;
+    }
+`;

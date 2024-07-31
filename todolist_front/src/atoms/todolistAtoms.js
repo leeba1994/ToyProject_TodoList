@@ -15,7 +15,7 @@ const nowYearAndMonth = {
     month: new Date().getMonth()
 }
 
-const registerDate = nowYearAndMonth.year + "-" + (nowYearAndMonth.month - 10 > -1 ? "" : "0") + nowYearAndMonth.month;
+const registerDate = nowYearAndMonth.year + "-" + (nowYearAndMonth.month - 10 > -1 ? "" : "0") + (nowYearAndMonth.month + 1) ;
 
 export const todoParamsAtom = atom({
     key: "todoParams",

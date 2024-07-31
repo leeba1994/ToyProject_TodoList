@@ -19,17 +19,6 @@ function LoginHook() {
             setUser(null);
         }
     }
-    useEffect(() => {
-        const getTodolist = async () => {
-            const response = await todolistApi(todoParams);
-            if(response.status === 200) {
-                setTodolist(response.data);
-            } else {
-                setTodolist([]);
-            }
-        }
-        getTodolist();
-    }, [todolist])
 
     useEffect(() => {
         const getTodolist = async () => {

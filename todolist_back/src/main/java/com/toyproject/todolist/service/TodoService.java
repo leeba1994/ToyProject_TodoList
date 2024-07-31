@@ -9,7 +9,7 @@ import java.util.List;
 
 public interface TodoService {
     int registerTodo(ReqRegisterTodoDto reqRegisterTodoDto );
-    int updateState(ReqUpdateTodoDto reqUpdateTodoDto);
+    int updateState(int todoId);
     int updateTodo(ReqUpdateTodoDto reqUpdateTodoDto);
     int deleteTodo(int todoId);
     List<RespGetTodoDto> getlist(ReqGetTodolistDto reqGetTodolistDto);

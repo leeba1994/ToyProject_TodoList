@@ -39,7 +39,7 @@ export async function updateTodoState(data) {
     return response;
 }
 
-export async function updateTodo(data) {
+export async function updateTodoContent(data) {
     let response = null;
 
     try {

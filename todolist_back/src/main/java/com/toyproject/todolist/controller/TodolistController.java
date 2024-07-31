@@ -28,16 +28,16 @@ public class TodolistController {
         return ResponseEntity.ok().body(todoService.getlist(reqGetTodolistDto));
     }
 
-    @PutMapping("/todo/state")
-    public ResponseEntity<?> updateState(@RequestBody ReqUpdateTodoDto reqUpdateTodolistDto) {
-        log.info("{}", reqUpdateTodolistDto);
-        return ResponseEntity.ok().body(todoService.updateState(reqUpdateTodolistDto));
+    @PutMapping("/todo/{todoId}")
+    public ResponseEntity<?> updateState(@PathVariable int todoId) {
+        log.info("{}", todoId);
+        return ResponseEntity.ok().body(todoService.updateState(todoId));
     }
 
     @PutMapping("/todo")
-    public ResponseEntity<?> updateTodo(@RequestBody ReqUpdateTodoDto reqUpdateTodolistDto) {
-        log.info("{}", reqUpdateTodolistDto);
-        return ResponseEntity.ok().body(todoService.updateTodo(reqUpdateTodolistDto));
+    public ResponseEntity<?> updateTodo(@RequestBody ReqUpdateTodoDto reqUpdateTodoDto) {
+        log.info("{}", reqUpdateTodoDto);
+        return ResponseEntity.ok().body(todoService.updateTodo(reqUpdateTodoDto));
     }
 
     @DeleteMapping("/todo/{todoId}")

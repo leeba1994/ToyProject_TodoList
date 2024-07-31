@@ -6,7 +6,7 @@
     <insert id="save" parameterType="com.toyproject.todolist.entity.Todo">
         insert into todolist_tb values(0, #{content}, #{registerDate}, #{state}, #{userId})
     </insert>
-    <update id="updateState" parameterType="com.toyproject.todolist.entity.Todo" >
+    <update id="updateState" parameterType="integer" >
         update todolist_tb
         set
             state = 1

@@ -13,6 +13,7 @@ export const container = css`
 
 export const listBox = css`
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
     box-sizing: border-box;
     margin-bottom: 10px;
@@ -38,8 +39,8 @@ export const buttonBox = css`
     display: flex;
     justify-content: space-between;
     box-sizing: border-box;
-    margin-top: 65px;
-    margin-right: 10px;
+    margin-left: 88px;
+    margin-bottom: 3px;
     width: 130px;
 
 `;

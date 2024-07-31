@@ -23,8 +23,8 @@ public class TodoServiceImpl implements TodoService {
     }
 
     @Override
-    public int updateState(ReqUpdateTodoDto reqUpdateTodoDto) {
-        return todoMapper.updateState(reqUpdateTodoDto.toEntityForState());
+    public int updateState(int todoId) {
+        return todoMapper.updateState(todoId);
     }
 
     @Override

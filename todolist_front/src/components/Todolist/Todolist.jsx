@@ -90,9 +90,9 @@ function Todolist() {
                             {
                                 todo.todoId === parseInt(checkedBox) ? 
                                 <div css={s.buttonBox}>
-                                    <button css={s.button} onClick={openUpdateModal}>UPDATE</button>
-                                    <button css={s.button} onClick={handleDeleteClick}>DELETE</button>
-                                    <button css={s.button} onClick={handleChangeStateClick}>CHANGESTATE</button>
+                                    <button css={s.button} onClick={openUpdateModal}>수정</button>
+                                    <button css={s.button} onClick={handleDeleteClick}>삭제</button>
+                                    <button css={s.button} onClick={handleChangeStateClick}>확인</button>
                                 </div> : <div></div>
                             }
                         </div>

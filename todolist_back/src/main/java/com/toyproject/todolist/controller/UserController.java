@@ -25,7 +25,9 @@ public class UserController {
         RespLoginUserDto user = (RespLoginUserDto) session.getAttribute("user");
         log.info("ID: {}", session.getId());
         log.info("user: {}", user);
+
         return ResponseEntity.ok().body(user);
+
     }
 
     @GetMapping("/session/remove")

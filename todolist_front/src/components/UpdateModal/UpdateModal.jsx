@@ -1,4 +1,5 @@
-import { css } from '@emotion/react';
+/** @jsxImportSource @emotion/react */
+import * as s from "./style";
 import React, { useEffect, useState } from 'react';
 import ReactModal from 'react-modal';
 import { useRecoilState } from 'recoil';
@@ -6,13 +7,19 @@ import { todoIdAtom, todoParamsAtom, todolistAtom } from '../../atoms/todolistAt
 import { todolistApi, updateTodoContent } from '../../apis/todoApi';
 
 function UpdateModal({ updateModal, closeModal }) {
+    const nowYearAndMonth = {    
+        year: new Date().getFullYear(),
+        month: (new Date().getMonth() + 1)
+    }
+    
+    const registerDate = nowYearAndMonth.year + "-" + (nowYearAndMonth.month >= 10 ? nowYearAndMonth.month : "0" + nowYearAndMonth.month) ;
     const [ todoId, setTodoId ] = useRecoilState(todoIdAtom);
     const [ todoParams, setTodoParams ] = useRecoilState(todoParamsAtom);
     const [ todolist, setTodolist ] = useRecoilState(todolistAtom);
     const [ updateTodo, setUpdateTodo ] = useState({
         todoId: 0,
         content: "",
-        registerDate: ""
+        registerDate: registerDate
     })
 
     const getTodolist = async () => {
@@ -66,7 +73,6 @@ function UpdateModal({ updateModal, closeModal }) {
                 transform: 'translate(-50%, -50%)',
                 top: '50%',
                 left: '50%',
-                padding: '20px',
                 width: '300px',
                 height: '300px',
                 backgroundColor: '#fafafa',
@@ -75,11 +81,11 @@ function UpdateModal({ updateModal, closeModal }) {
             isOpen={updateModal}
             onRequestClose={closeModal}
         >
-            <div css={css`display: flex; flex-direction: column; justify-content: center; align-items:center; height: 100%;`}>
-                <h2>TO-DO-LIST</h2>
-                <input type="text" name='content' onChange={handleInputOnChange} value={updateTodo.content} placeholder='수정 내용 입력'/>
+            <div css={s.modalBox}>
+                <h2>UPDATE-TO-DO</h2>
                 <input type="month" name='registerDate' onChange={handleInputOnChange} value={updateTodo.registerDate}/>
-                <div>
+                <input type="text" name='content' onChange={handleInputOnChange} value={updateTodo.content} placeholder='수정 내용 입력'/>
+                <div css={s.buttonBox}>
                     <button onClick={handleUpdateSubmitClick}>수정하기</button>
                     <button onClick={closeModal}>취소</button>
                 </div>

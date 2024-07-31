@@ -6,7 +6,8 @@ export const layout = css`
     justify-content: space-between;
     align-items: center;
     margin: 5px 10px;
-    border: 1px solid #dbdbdb;
+    border: 2px solid #dbdbdb;
+    border-radius: 5px;
     padding: 5px 10px;
     height: 60px;
 `;
@@ -23,6 +24,13 @@ export const nav = css`
     align-items: center;
     margin: 0px;
     padding: 5px 10px;
+    input {
+        margin-right: 10px;
+        text-align: center;
+        font-size: 20px;
+        font-weight: bold;
+        cursor: pointer;
+    }
 `;
 
 export const link = css`

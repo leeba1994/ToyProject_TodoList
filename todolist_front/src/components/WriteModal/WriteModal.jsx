@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
+/** @jsxImportSource @emotion/react */
+import * as s from "./style";
 import { useRecoilState } from 'recoil';
 import { userAtom } from '../../atoms/userAtoms';
 import ReactModal from 'react-modal';
-import { css } from '@emotion/react';
 import { registerTodoApi, todolistApi } from '../../apis/todoApi';
 import { todoParamsAtom, todolistAtom } from '../../atoms/todolistAtoms';
 /** @jsxImportSource @emotion/react */
@@ -78,11 +79,11 @@ function WriteModal({ writeModal, closeModal}) {
             isOpen={writeModal}
             onRequestClose={closeModal}
             >
-            <div css={css`display: flex; flex-direction: column; justify-content: center; align-items:center; height: 100%;`}>
-                <h2>TO-DO-LIST</h2>
-                <input type="text" name='content' onChange={handleInputOnChange} value={writeInput.content} placeholder='해야 할 일 입력'/>
+            <div css={s.modalBox}>
+                <h2>TO-DO</h2>
                 <input type="month" name='registerDate' onChange={handleInputOnChange} value={writeInput.registerDate} />
-                <div>
+                <input type="text" name='content' onChange={handleInputOnChange} value={writeInput.content} placeholder='TO-DO'/>
+                <div css={s.buttonBox}>
                     <button onClick={handleWriteSubmitClick}>WRITE</button>
                     <button onClick={closeModal}>취소</button>
                 </div>

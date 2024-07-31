@@ -5,14 +5,20 @@ export const layout = css`
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 5px 10px;
-    border: 1px solid #dbdbdb;
+    margin: 0 10px;
     padding: 5px 10px;
     height: 60px;
+    input {
+        text-align: center;
+        font-size: 20px;
+        font-weight: bold;
+    }
 `;
 
 export const dateinput = css`
     margin: 0px 7px;
+    border-radius: 5px;
+    height: 30px;
     width: 500px;
 `;
 

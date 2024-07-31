@@ -1,4 +1,6 @@
 import { css } from '@emotion/react';
+/** @jsxImportSource @emotion/react */
+import * as s from "./style";
 import React, { useState } from 'react';
 import ReactModal from 'react-modal';
 import { loginApi } from '../../apis/userApi';
@@ -25,11 +27,21 @@ function LoginModal({ loginModal, closeModal }) {
     }
 
     const handleLoginSubmitClick = async () => {
+        if(loginUser.userName === "") {
+            alert("ID Data : ");
+            return;
+        }
+        if(loginUser.password === "") {
+            alert("Password Data : ");
+            return;
+        }
         const response = await loginApi(loginUser);
         if(response.status === 200) {
             setLoginState(true);
+            alert("Login Success");
         }else {
             setLoginState(false);
+            alert("Login Fail");
         }
         setLoginUser({
             userName: "",
@@ -55,13 +67,13 @@ function LoginModal({ loginModal, closeModal }) {
             isOpen={loginModal}
             onRequestClose={closeModal}
         >
-            <div css={css`display: flex; flex-direction: column; justify-content: center; align-items:center; height: 100%;`}>
+            <div css={s.modalBox}>
                 <h2>LOGIN</h2>
-                <input type="text" name='userName' onChange={handleInputChange} value={loginUser.userName}/>
-                <input type="password" name='password' onChange={handleInputChange} value={loginUser.password}/>
-                <div>
+                <input type="text" name='userName' onChange={handleInputChange} value={loginUser.userName} placeholder='ID :'/>
+                <input type="password" name='password' onChange={handleInputChange} value={loginUser.password} placeholder='Password :'/>
+                <div css={s.buttonBox}>
                     <button onClick={handleLoginSubmitClick}>Login</button>
-                    <button onClick={closeModal}>취소</button>
+                    <button onClick={closeModal}>Cancel</button>
                 </div>
             </div>        
         </ReactModal>

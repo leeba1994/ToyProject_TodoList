@@ -67,11 +67,9 @@ function SelectDate() {
     return (
         <>
             <div css={s.layout}>
-                
-                <FaArrowAltCircleLeft css={s.arrow} onClick={handleArrowOnClick}  />
+                <FaArrowAltCircleLeft css={s.arrow} onClick={handleArrowOnClick} />
                     <input type="month" name='registerDate' onChange={handleInputOnChange} css={s.dateinput} value={params.registerDate} />
                 <FaArrowAltCircleRight css={s.arrow} onClick={handleaddArrowOnClick} />
-                
             </div>
         </>
     );

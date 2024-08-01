@@ -40,6 +40,9 @@ function RegisterModal({registerModal, closeModal}) {
             return;
         }
         const response = await registerApi(registerUser);
+        if(response.status === 400) {
+            alert(`${registerUser.userName}은 이미 존재하는 아이디입니다.`);
+        }
         if(response.status === 200) {
             alert("Register Success");
         }else {

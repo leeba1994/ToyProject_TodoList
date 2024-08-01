@@ -41,7 +41,11 @@ public class UserController {
     @PostMapping("/user")
     public ResponseEntity<?> registerUser(@RequestBody ReqRegisterUserDto reqRegisterUserDto) {
         log.info("{}", reqRegisterUserDto);
-        return ResponseEntity.ok().body(userService.registerUser(reqRegisterUserDto));
+        if(userService.registerUser(reqRegisterUserDto) < 0) {
+            return ResponseEntity.badRequest().body(userService.registerUser(reqRegisterUserDto));
+        } else {
+            return ResponseEntity.ok().body(userService.registerUser(reqRegisterUserDto));
+        }
     }
 
     @PostMapping("/login")

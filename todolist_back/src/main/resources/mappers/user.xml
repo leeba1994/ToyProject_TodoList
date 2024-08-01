@@ -20,5 +20,15 @@
         where
             userName = #{userName} and password = #{password}
     </select>
+    <select id="getAllUsers" resultType="com.toyproject.todolist.entity.User">
+        select
+            userId,
+            userName,
+            password,
+            name,
+            email
+        from
+            user_tb
+    </select>
 
 </mapper>

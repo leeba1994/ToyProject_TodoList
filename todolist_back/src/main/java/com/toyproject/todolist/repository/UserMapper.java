@@ -8,6 +8,7 @@ import java.util.List;
 @Mapper
 public interface UserMapper {
     int save(User user);
+    Integer duplicate(String userName);
     User findUserByUserNameAndPassword(User user);
     List<User> getAllUsers();
 }

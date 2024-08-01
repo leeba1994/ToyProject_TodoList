@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { FaArrowAltCircleLeft, FaArrowAltCircleRight } from "react-icons/fa";
 /** @jsxImportSource @emotion/react */
 import * as s from "./style";
@@ -68,7 +68,7 @@ function SelectDate() {
         <>
             <div css={s.layout}>
                 <FaArrowAltCircleLeft css={s.arrow} onClick={handleArrowOnClick} />
-                    <input type="month" name='registerDate' onChange={handleInputOnChange} css={s.dateinput} value={params.registerDate} />
+                    <input type="month" name='registerDate'  onChange={handleInputOnChange} css={s.dateinput} value={params.registerDate}  />
                 <FaArrowAltCircleRight css={s.arrow} onClick={handleaddArrowOnClick} />
             </div>
         </>

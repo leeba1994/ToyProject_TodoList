@@ -45,7 +45,7 @@ function Todolist() {
     }
  
     const handleDeleteClick = async () => {
-        if(window.confirm("삭제하시겠습니까?")) {
+        if(window.confirm("Delete?")) {
             try {
                 const response = await deleteTodo(todoId);
                 console.log(response.data);
@@ -53,12 +53,12 @@ function Todolist() {
                 console.error(e);
             }
             getTodolist();
-            alert("삭제 완료");
+            alert("Success Delete");
         } 
     }
 
     const handleChangeStateClick = async () => {
-        if(window.confirm("완료 하시겠습까?")) {
+        if(window.confirm("Change State?")) {
             try {
                 const response = await updateTodoState(todoId);
                 console.log(response.data);
@@ -66,7 +66,7 @@ function Todolist() {
                 console.error(e);
             }
             getTodolist();
-            alert("완료");
+            alert("Success Change State");
         } 
     }
 
@@ -80,20 +80,20 @@ function Todolist() {
         <>
             <UpdateModal updateModal={updateModal} closeModal={closeModal} />
             <div css={s.container}>
+                <div css={s.todoHeader}><h2>To Do</h2></div>    
                 {
                     todolist.filter(todo => todo.state === 0).map(todo => 
-                        <div css={s.listBox} key={todo.todoId}>
+                        <div css={s.todoBox} key={todo.todoId}>
                             <div css={s.ipBox}>
-                                <input type="checkbox" id='chk' onChange={handleCheckBoxChange} checked={todo.todoId === parseInt(checkedBox)} css={s.checkbox} value={todo.todoId} ref={checkBoxRef}/>
-                                <label htmlFor="chk"></label>
+                                <input type="checkbox" id='chk' onChange={handleCheckBoxChange} checked={todo.todoId === parseInt(checkedBox)} value={todo.todoId}/>
                                 <p>{todo.content}</p>
                             </div>
                             {
                                 todo.todoId === parseInt(checkedBox) ? 
                                 <div css={s.buttonBox}>
-                                    <button css={s.button} onClick={openUpdateModal}>수정</button>
-                                    <button css={s.button} onClick={handleDeleteClick}>삭제</button>
-                                    <button css={s.button} onClick={handleChangeStateClick}>확인</button>
+                                    <button css={s.button} onClick={openUpdateModal}>Update</button>
+                                    <button css={s.button} onClick={handleDeleteClick}>Delete</button>
+                                    <button css={s.button} onClick={handleChangeStateClick}>ChangeState</button>
                                 </div> : <div></div>
                             }
                         </div>

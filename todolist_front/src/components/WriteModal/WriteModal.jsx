@@ -66,14 +66,16 @@ function WriteModal({ writeModal, closeModal}) {
         <ReactModal
             style={{
                 content: {
-                boxSizing: 'border-box',
-                transform: 'translate(-50%, -50%)',
-                top: '50%',
-                left: '50%',
-                padding: '20px',
-                width: '300px',
-                height: '300px',
-                backgroundColor: '#fafafa',
+                    boxSizing: 'border-box',
+                    transform: 'translate(-50%, -50%)',
+                    top: '50%',
+                    left: '50%',
+                    border: '2px solid #7A90E2',
+                    borderRadius: '10px',
+                    padding: '20px',
+                    width: '300px',
+                    height: '300px',
+                    backgroundColor: '#fafafa',
                 }
             }}
             isOpen={writeModal}

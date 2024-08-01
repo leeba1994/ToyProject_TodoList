@@ -1,9 +1,8 @@
-import React, { useEffect, useRef, useState } from 'react';
-import { FaArrowAltCircleLeft, FaArrowAltCircleRight } from "react-icons/fa";
 /** @jsxImportSource @emotion/react */
 import * as s from "./style";
 import { useRecoilState } from 'recoil';
 import { todoParamsAtom, todolistAtom } from '../../atoms/todolistAtoms';
+import { MdArrowBackIosNew, MdArrowForwardIos } from "react-icons/md";
 import { userAtom } from '../../atoms/userAtoms';
 import { todolistApi } from '../../apis/todoApi';
 
@@ -67,9 +66,9 @@ function SelectDate() {
     return (
         <>
             <div css={s.layout}>
-                <FaArrowAltCircleLeft css={s.arrow} onClick={handleArrowOnClick} />
-                    <input type="month" name='registerDate'  onChange={handleInputOnChange} css={s.dateinput} value={params.registerDate}  />
-                <FaArrowAltCircleRight css={s.arrow} onClick={handleaddArrowOnClick} />
+                <MdArrowBackIosNew css={s.arrow} onClick={handleArrowOnClick} />
+                    <input type="month" name='registerDate' onChange={handleInputOnChange} value={params.registerDate} />
+                <MdArrowForwardIos css={s.arrow} onClick={handleaddArrowOnClick} />
             </div>
         </>
     );

@@ -48,19 +48,29 @@ function Header(props) {
         setWriteModal(true);
     }
 
-
-    const handleLogoutClick = async () => {
-        try { 
-            const response = await invalidateSessionApi();
-            console.log(response.data);
+    const getTodolistBySearchInput = async () => {
+        try {
+            const response = await searchTodo(searchInput);
+            setTodolist(response.data);
         } catch(e) {
             console.error(e);
         }
-        setUser({
-            userId: 0,
-            userName: ""
-        });
-        setLoginState(false);
+    }
+
+    const handleLogoutClick = async () => {
+        if(window.confirm("Logout?")) {
+            try { 
+                const response = await invalidateSessionApi();
+                console.log(response.data);
+            } catch(e) {
+                console.error(e);
+            }
+            setUser({
+                userId: 0,
+                userName: ""
+            });
+            setLoginState(false);
+        }
     }
 
     const handleSearchInputChange = (e) => {
@@ -74,15 +84,11 @@ function Header(props) {
         })
     }
 
+    const handleSearchInputOnBlur = () => {
+        searchInput.content = ""
+    }
+
     useEffect(() => {
-        const getTodolistBySearchInput = async () => {
-            try {
-                const response = await searchTodo(searchInput);
-                setTodolist(response.data);
-            } catch(e) {
-                console.error(e);
-            }
-        }
         getTodolistBySearchInput();
     }, [searchInput])
 
@@ -96,7 +102,7 @@ function Header(props) {
                 {
                     !!user ? 
                         <div css={s.nav}>
-                            <input type="text" onChange={handleSearchInputChange} value={searchInput.content} placeholder='Search Data : '/>
+                            <input type="text" onBlur={handleSearchInputOnBlur} onChange={handleSearchInputChange} value={searchInput.content} placeholder='Search Data'/>
                             <p css={s.link} onClick={onpenWriteModal}>Write</p>
                             <p css={s.link} onClick={handleLogoutClick}>Logout</p>
                         </div> 

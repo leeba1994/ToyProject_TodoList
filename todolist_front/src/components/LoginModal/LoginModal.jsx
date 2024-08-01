@@ -1,15 +1,12 @@
-import { css } from '@emotion/react';
 /** @jsxImportSource @emotion/react */
 import * as s from "./style";
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import ReactModal from 'react-modal';
 import { loginApi } from '../../apis/userApi';
 import { useRecoilState } from 'recoil';
-import { loginStateAtom, userAtom } from '../../atoms/userAtoms';
-/** @jsxImportSource @emotion/react */
+import { loginStateAtom } from '../../atoms/userAtoms';
 
 function LoginModal({ loginModal, closeModal }) {
-    const [ user, setUser ] = useRecoilState(userAtom);
     const [ loginState, setLoginState ] = useRecoilState(loginStateAtom);
 
     const [ loginUser, setLoginUser ] = useState({
@@ -43,12 +40,15 @@ function LoginModal({ loginModal, closeModal }) {
             setLoginState(false);
             alert("Login Fail");
         }
+        closeModal();
+    }
+
+    useEffect(() => {
         setLoginUser({
             userName: "",
             password: ""
         })
-        closeModal();
-    }
+    }, [loginModal])
 
     return (
         <ReactModal
@@ -58,6 +58,8 @@ function LoginModal({ loginModal, closeModal }) {
                 transform: 'translate(-50%, -50%)',
                 top: '50%',
                 left: '50%',
+                border: '2px solid #7A90E2',
+                borderRadius: '10px',
                 padding: '20px',
                 width: '300px',
                 height: '300px',
@@ -69,8 +71,8 @@ function LoginModal({ loginModal, closeModal }) {
         >
             <div css={s.modalBox}>
                 <h2>LOGIN</h2>
-                <input type="text" name='userName' onChange={handleInputChange} value={loginUser.userName} placeholder='ID :'/>
-                <input type="password" name='password' onChange={handleInputChange} value={loginUser.password} placeholder='Password :'/>
+                <input type="text" name='userName' onChange={handleInputChange} value={loginUser.userName} placeholder='ID'/>
+                <input type="password" name='password' onChange={handleInputChange} value={loginUser.password} placeholder='Password'/>
                 <div css={s.buttonBox}>
                     <button onClick={handleLoginSubmitClick}>Login</button>
                     <button onClick={closeModal}>Cancel</button>

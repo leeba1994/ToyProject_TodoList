@@ -7,10 +7,23 @@ export const modalBox = css`
     justify-content: center;
     align-items:center;
     height: 100%;
+    h2 {
+        font-weight: bold;
+        color: #7A90E2;
+    }
     input {
-        width: auto;
         margin-bottom: 3px;
+        border: 2px solid #7A90E2;
+        border-radius: 5px;
+        width: auto;
+        text-align: center;
         overflow: hidden;
+        outline: none;
+        color: #7A90E2;
+        ::placeholder {
+            font-weight: bold;
+            color: #7A90E2;
+        }
     }
 `;
 
@@ -22,7 +35,12 @@ export const buttonBox = css`
     width: 100%;
     button {
         margin-bottom: 3px;
+        border: 2px solid #7A90E2;
+        border-radius: 5px;
         width: auto;
-        
+        color: #ffffff;
+        font-weight: bold;
+        background-color: #7A90E2;
+        outline: none;
     }
 `;

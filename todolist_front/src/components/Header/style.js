@@ -6,7 +6,7 @@ export const layout = css`
     justify-content: space-between;
     align-items: center;
     margin: 5px 10px;
-    border: 2px solid #dbdbdb;
+    border: 2px solid #7A90E2;
     border-radius: 5px;
     padding: 5px 10px;
     height: 60px;
@@ -15,6 +15,8 @@ export const layout = css`
 export const logo = css`
     margin: 0px;
 	padding: 5px 10px;
+    font-weight: bold;
+    color: #7A90E2;
 `;
 
 export const nav = css`
@@ -26,16 +28,24 @@ export const nav = css`
     padding: 5px 10px;
     input {
         margin-right: 10px;
+        border: 2px solid #7A90E2;
+        border-radius: 10px;
         text-align: center;
         font-size: 20px;
         font-weight: bold;
+        color: #7A90E2;
+        outline: none;
         cursor: pointer;
+        ::placeholder {
+            color: #7A90E2;
+        }
     }
 `;
 
 export const link = css`
 	margin: 10px;
-    font-size: 16px;
+    font-size: bold;
+    color: #7A90E2;
     cursor: pointer;
 `;
 

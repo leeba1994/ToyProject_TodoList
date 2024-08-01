@@ -10,11 +10,12 @@ function ClearedTodolist() {
 
     return (
         <div css={s.container}>
+            <div css={s.todoHeader}><h2>Done</h2></div>   
             {
                 todolist.filter(todo => todo.state === 1).map(todo => 
-                    <div css={s.listBox} key={todo.todoId}>
+                    <div css={s.todoBox} key={todo.todoId}>
                         <div css={s.ipBox}>
-                            <input type="checkbox" checked={true} css={s.checkbox} disabled={true} />      
+                            <input type="checkbox" checked={true} disabled={true} />     
                             <p>{todo.content}</p>
                         </div>
                     </div>

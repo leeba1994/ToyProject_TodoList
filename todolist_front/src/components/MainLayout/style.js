@@ -4,7 +4,9 @@ export const layout = css`
     position: relative;
     display: flex;
     flex-direction: column;
-    width: 800px;
+    border: 2px solid #dbdbdb;
+    border-radius: 5px;
+    width: 1000px;
     height: 100%;
     overflow-y: auto;
 `;

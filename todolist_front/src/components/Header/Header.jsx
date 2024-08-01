@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 /** @jsxImportSource @emotion/react */
 import * as s from "./style";
 import { useRecoilState } from 'recoil';
-import { userAtom } from '../../atoms/userAtoms';
+import { loginStateAtom, userAtom } from '../../atoms/userAtoms';
 import ReactModal from 'react-modal';
 import { invalidateSessionApi } from '../../apis/userApi';
 import LoginModal from '../LoginModal/LoginModal';
@@ -11,10 +11,12 @@ import WriteModal from '../WriteModal/WriteModal';
 import { searchTodo, todolistApi } from '../../apis/todoApi';
 import { todolistAtom, todoParamsAtom } from '../../atoms/todolistAtoms';
 import { BsNutFill } from 'react-icons/bs';
+import LoginHook from '../../hooks/LoginHook';
 ReactModal.setAppElement("#root");
 
 function Header(props) {
     const [ user, setUser ] = useRecoilState(userAtom)
+    const [ loginState, setLoginState ] = useRecoilState(loginStateAtom);
     const [ todolist, setTodolist ] = useRecoilState(todolistAtom);
     const [ todoParams, setTodoParams ] = useRecoilState(todoParamsAtom);
 
@@ -24,8 +26,8 @@ function Header(props) {
 
     const [ searchInput, setSearchInput ] = useState({
         content: "",
-        userId: user.userId,
-        registerDate: todoParams
+        userId: todoParams.userId,
+        registerDate: todoParams.registerDate
     });
     
     const closeModal = () => {
@@ -58,6 +60,7 @@ function Header(props) {
             userId: 0,
             userName: ""
         });
+        setLoginState(false);
     }
 
     const handleSearchInputChange = (e) => {

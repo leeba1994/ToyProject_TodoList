@@ -38,14 +38,16 @@ public class UserController {
         return ResponseEntity.ok().body(null);
     }
 
+    @GetMapping("/user/duplicate/{userName}")
+    public ResponseEntity<?> duplicateUserName(@PathVariable String userName) {
+        log.info("{}", userName);
+        return ResponseEntity.ok().body(userService.duplicateUserName(userName));
+    }
+
     @PostMapping("/user")
     public ResponseEntity<?> registerUser(@RequestBody ReqRegisterUserDto reqRegisterUserDto) {
         log.info("{}", reqRegisterUserDto);
-        if(userService.registerUser(reqRegisterUserDto) < 0) {
-            return ResponseEntity.badRequest().body(userService.registerUser(reqRegisterUserDto));
-        } else {
-            return ResponseEntity.ok().body(userService.registerUser(reqRegisterUserDto));
-        }
+        return ResponseEntity.ok().body(userService.registerUser(reqRegisterUserDto));
     }
 
     @PostMapping("/login")

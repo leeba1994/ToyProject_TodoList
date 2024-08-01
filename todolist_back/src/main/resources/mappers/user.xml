@@ -30,5 +30,13 @@
         from
             user_tb
     </select>
+    <select id="duplicate" resultType="java.lang.Integer">
+        select
+            *
+        from
+            user_tb
+        where
+            userName = #{userName}
+    </select>
 
 </mapper>

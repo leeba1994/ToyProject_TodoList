@@ -1,8 +1,9 @@
 /** @jsxImportSource @emotion/react */
 import * as s from "./style";
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import ReactModal from 'react-modal';
-import { registerApi } from '../../apis/userApi';
+import { duplicateUserName, registerApi } from '../../apis/userApi';
+import { css } from "@emotion/react";
 /** @jsxImportSource @emotion/react */
 
 function RegisterModal({registerModal, closeModal}) {
@@ -40,9 +41,6 @@ function RegisterModal({registerModal, closeModal}) {
             return;
         }
         const response = await registerApi(registerUser);
-        if(response.status === 400) {
-            alert(`${registerUser.userName}은 이미 존재하는 아이디입니다.`);
-        }
         if(response.status === 200) {
             alert("Register Success");
         }else {
@@ -55,6 +53,13 @@ function RegisterModal({registerModal, closeModal}) {
             email: ""
         }) 
         closeModal();
+    }
+
+    const handleDuplicateUserNameOnBlur = async () => {
+        const response = await duplicateUserName(registerUser.userName);
+        console.log(response.data);
+        response.data === 1 ? alert("Usable ID") : alert("Duplicate ID")
+        
     }
 
     return (
@@ -75,7 +80,7 @@ function RegisterModal({registerModal, closeModal}) {
         >
             <div css={s.modalBox}>
                 <h2>REGISTER</h2>
-                <input type="text" name='userName' onChange={handleInputOnChange} value={registerUser.userName} placeholder='ID :'/>
+                <input type="text" name='userName' onBlur={handleDuplicateUserNameOnBlur} onChange={handleInputOnChange} value={registerUser.userName} placeholder='ID :'/>  
                 <input type="password" name='password' onChange={handleInputOnChange} value={registerUser.password} placeholder='Password :'/>
                 <input type="text" name='name' onChange={handleInputOnChange} value={registerUser.name} placeholder='Name :'/>
                 <input type="text" name='email' onChange={handleInputOnChange} value={registerUser.email} placeholder='Email :'/>

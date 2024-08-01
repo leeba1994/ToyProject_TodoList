@@ -96,7 +96,7 @@ function Header(props) {
                 {
                     !!user ? 
                         <div css={s.nav}>
-                            <input type="text" onChange={handleSearchInputChange} value={searchInput.content} placeholder='Search Date : '/>
+                            <input type="text" onChange={handleSearchInputChange} value={searchInput.content} placeholder='Search Data : '/>
                             <p css={s.link} onClick={onpenWriteModal}>Write</p>
                             <p css={s.link} onClick={handleLogoutClick}>Logout</p>
                         </div> 

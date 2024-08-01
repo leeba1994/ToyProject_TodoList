@@ -52,8 +52,9 @@ export const checkbox = css`
 export const buttonBox = css`
     box-sizing: border-box;
     display: flex;
-    flex-direction: row;
     justify-content: flex-end;
+    margin-left: 3px;
+    margin-bottom: 3px;
 `;
 
 export const button = css`

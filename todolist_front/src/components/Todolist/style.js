@@ -15,6 +15,7 @@ export const container = css`
     }
 `;
 
+
 export const todoHeader = css`
     box-sizing: border-box;
     display: flex;
@@ -52,11 +53,13 @@ export const ipBox = css`
     width: 100%;
     word-break: break-all;
     input {
+        display: none;
         box-sizing: border-box;
         margin: 10px;
         width: 20px;
         height: 20px;
         accent-color: #7A90E2;
+
     }
     p { 
 
@@ -89,4 +92,12 @@ export const button = css`
     color: #ffffff;
     background-color: #7A90E2;
     cursor: pointer;
+`;
+
+export const checkIcon = css`
+    box-sizing: border-box;
+    color: #7A90E2;
+    margin: 10px;
+    width: 30px;
+    height: 30px;
 `;

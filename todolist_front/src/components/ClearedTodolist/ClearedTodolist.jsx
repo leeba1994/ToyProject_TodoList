@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import * as s from "./style";
 import { useRecoilState } from 'recoil';
 import { todolistAtom } from '../../atoms/todolistAtoms';
+import { PiCheckCircleFill } from "react-icons/pi";
 
 
 function ClearedTodolist() {
@@ -14,7 +15,8 @@ function ClearedTodolist() {
             {
                 todolist.filter(todo => todo.state === 1).map(todo => 
                     <div css={s.todoBox} key={todo.todoId}>
-                        <input type="checkbox" checked={true} disabled={true} />     
+                        <label htmlFor="chk"><PiCheckCircleFill css={s.checkIcon} /></label>
+                        <input id='chk' type="checkbox" checked={true} disabled={true} />     
                         <p>{todo.content}</p>
                     </div>
                 )

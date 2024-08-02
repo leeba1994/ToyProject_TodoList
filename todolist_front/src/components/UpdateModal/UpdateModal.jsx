@@ -42,6 +42,10 @@ function UpdateModal({ updateModal, closeModal }) {
     }
 
     const handleUpdateSubmitClick = async () => {
+        if(updateTodo.content === "") {
+            alert("내용을 입력하세요.");
+            return;
+        }
         const response = await updateTodoContent(updateTodo);
         if(response.status === 200) {
             alert("수정 완료");

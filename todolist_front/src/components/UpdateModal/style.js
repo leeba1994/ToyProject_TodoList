@@ -10,6 +10,7 @@ export const modalBox = css`
     h2 {
         font-weight: bold;
         color: #7A90E2;
+        cursor: default;
     }
     & input[type="text"] {
         margin-bottom: 3px;
@@ -20,6 +21,7 @@ export const modalBox = css`
         overflow: hidden;
         outline: none;
         color: #7A90E2;
+        cursor: pointer;
         ::placeholder {
             font-weight: bold;
             color: #7A90E2;
@@ -46,6 +48,7 @@ export const modalBox = css`
         opacity: 0;
         width: 100%;
         height: 100%;
+        cursor: pointer;
     }
 `;
 
@@ -64,5 +67,6 @@ export const buttonBox = css`
         font-weight: bold;
         background-color: #7A90E2;
         outline: none;
+        cursor: pointer;
     }
 `;

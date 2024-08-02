@@ -15,8 +15,6 @@ function Todolist() {
     const [ checkedBox, setCheckedBox ] = useState(0);
     const [ updateModal, setUpdateModal ] = useState(false);
 
-    const [checked, setChecked] = useState(false);  //테스트
-
     const openUpdateModal = () => {
         setUpdateModal(true);
     }
@@ -94,6 +92,10 @@ function Todolist() {
     //         document.removeEventListener('click', handleClcikOutside)
     //     }
     // }, [checkBoxRef.current])
+
+    useEffect(() => {
+        setCheckedBox(0);
+    }, [todoParams])
     return (
         <>
             <UpdateModal updateModal={updateModal} closeModal={closeModal} />
@@ -112,10 +114,10 @@ function Todolist() {
                                     {
                                         parseInt(checkedBox) === todo.todoId ? <PiCheckCircleFill css={s.checkIcon} /> : <PiCircle css={s.checkIcon}/>
                                     }
-                                </label>
+                                </label >
                                 <input id={todo.todoId} type="checkbox" 
                                 // onChange={(e) => setChecked(e.target.checked)}
-                                onChange={handleCheckBoxChange} 
+                                onChange={handleCheckBoxChange}
                                 checked={parseInt(checkedBox) === todo.todoId ? true : false} 
                                 value={todo.todoId} ref={checkBoxRef}/>
                                 <p>{todo.content}</p>

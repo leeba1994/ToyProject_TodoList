@@ -38,21 +38,19 @@ export const todoBox = css`
     margin-bottom: 10px;
     border: 2px solid #7A90E2;
     border-radius: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
     width: 100%;
-    height: 100px;
 `;
 
 export const ipBox = css`
     box-sizing: content-box;
     display: flex;
-    flex-grow: 1;
     align-items: center;
     box-sizing: border-box;
     padding-left: 5px;
     width: 100%;
-    overflow : hidden;
-    white-space: nowrap; 
-    -webkit-line-clamp: 1;
+    word-break: break-all;
     input {
         box-sizing: border-box;
         margin: 10px;
@@ -60,10 +58,12 @@ export const ipBox = css`
         height: 20px;
         accent-color: #7A90E2;
     }
-    p {
+    p { 
+
         font-size: 20px;
         font-weight: bold;
         color: #7A90E2;
+        max-width: 650px;
     }
 `;
    

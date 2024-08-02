@@ -7,7 +7,7 @@ export const modalBox = css`
     justify-content: center;
     align-items:center;
     height: 100%;
-    & h2 {
+    h2 {
         font-weight: bold;
         color: #7A90E2;
     }

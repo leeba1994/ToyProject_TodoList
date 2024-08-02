@@ -45,6 +45,10 @@ function WriteModal({ writeModal, closeModal}) {
     }
 
     const handleWriteSubmitClick = async () => {
+        if(writeInput.content === "") {
+            alert("내용을 입력하세요.");
+            return;
+        }
         const response = await registerTodoApi(writeInput)
         if(response.status === 200) {
             alert("TODO 등록 완료.");

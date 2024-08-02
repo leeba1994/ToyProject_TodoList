@@ -27,6 +27,10 @@ export const todoHeader = css`
     width: 100%;
     height: 70px;
     color: #7A90E2;
+
+    & h2 {
+        cursor: default;
+    }
 `;
 
 export const todoBox = css`
@@ -67,6 +71,7 @@ export const ipBox = css`
         font-weight: bold;
         color: #7A90E2;
         max-width: 650px;
+        cursor: default;
     }
 `;
    
@@ -100,4 +105,5 @@ export const checkIcon = css`
     margin: 10px;
     width: 30px;
     height: 30px;
+    cursor: pointer;
 `;

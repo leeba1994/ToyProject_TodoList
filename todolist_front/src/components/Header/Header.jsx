@@ -65,12 +65,9 @@ function Header(props) {
             } catch(e) {
                 console.error(e);
             }
-            setUser({
-                userId: 0,
-                userName: ""
-            });
             setLoginState(false);
         }
+        
     }
 
     const handleSearchInputChange = (e) => {

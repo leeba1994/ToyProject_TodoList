@@ -43,14 +43,10 @@ function LoginHook() {
 
     useEffect(() => {
         loginCheck();
-        console.log(user);
-
     }, [loginState]);
 
     useEffect(() => {
         loginCheck();
-        console.log(user);
-
     }, []);
 
 }

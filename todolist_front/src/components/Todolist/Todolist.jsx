@@ -85,7 +85,7 @@ function Todolist() {
                     todolist.filter(todo => todo.state === 0).map(todo => 
                         <div css={s.todoBox} key={todo.todoId}>
                             <div css={s.ipBox}>
-                                <input type="checkbox" id='chk' onChange={handleCheckBoxChange} checked={todo.todoId === parseInt(checkedBox)} value={todo.todoId}/>
+                                <input type="checkbox" onChange={handleCheckBoxChange} checked={todo.todoId === parseInt(checkedBox)} value={todo.todoId} ref={checkBoxRef}/>
                                 <p>{todo.content}</p>
                             </div>
                             {

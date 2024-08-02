@@ -47,6 +47,12 @@ function LoginHook() {
 
     }, [loginState]);
 
+    useEffect(() => {
+        loginCheck();
+        console.log(user);
+
+    }, []);
+
 }
 
 export default LoginHook;

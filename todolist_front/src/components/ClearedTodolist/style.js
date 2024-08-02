@@ -21,7 +21,6 @@ export const todoHeader = css`
     align-items: center;
     box-sizing: border-box;
     margin-bottom: 10px;
-    border-radius: 5px;
     width: 100%;
     height: 70px;
     color: #7A90E2;
@@ -30,36 +29,27 @@ export const todoHeader = css`
 export const todoBox = css`
     box-sizing: border-box;
     display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    box-sizing: border-box;
-    margin-bottom: 10px;
-    border: 2px solid #7A90E2;
-    border-radius: 10px;
-    width: 100%;
-    height: 100px;
-`;
-
-export const ipBox = css`
-    box-sizing: border-box;
-    display: flex;
     flex-grow: 1;
     align-items: center;
     padding-left: 5px;
     width: 100%;
+    height: 100px;
     background-color: #7A90E2;
+    border: 2px solid #7A90E2;
+    border-radius: 10px;
     overflow : hidden;
     white-space: nowrap; 
     -webkit-line-clamp: 1;
-    input {
+    & input {
         box-sizing: border-box;
         margin: 10px;
         width: 20px;
         height: 20px;
     }
-    p {
+    & p {
         font-size: 20px;
         font-weight: bold;
         color: #ffffff;
     }
 `;
+

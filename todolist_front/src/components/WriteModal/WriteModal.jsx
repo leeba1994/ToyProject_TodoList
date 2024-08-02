@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 /** @jsxImportSource @emotion/react */
 import * as s from "./style";
 import { useRecoilState } from 'recoil';
@@ -59,8 +59,14 @@ function WriteModal({ writeModal, closeModal}) {
             userId: user.userId
         })
         closeModal();
-        
     }
+
+    useEffect(() => {
+        setWriteInput({
+            content: "",
+            registerDate: registerDate,
+        })
+    }, [writeModal])
 
     return (
         <ReactModal
@@ -86,8 +92,8 @@ function WriteModal({ writeModal, closeModal}) {
                 <input type="month" name='registerDate' onChange={handleInputOnChange} value={writeInput.registerDate} />
                 <input type="text" name='content' onChange={handleInputOnChange} value={writeInput.content} placeholder='TO-DO'/>
                 <div css={s.buttonBox}>
-                    <button onClick={handleWriteSubmitClick}>WRITE</button>
-                    <button onClick={closeModal}>취소</button>
+                    <button onClick={handleWriteSubmitClick}>Write</button>
+                    <button onClick={closeModal}>Cancel</button>
                 </div>
             </div>        
         </ReactModal>

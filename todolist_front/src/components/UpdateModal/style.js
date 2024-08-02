@@ -11,11 +11,11 @@ export const modalBox = css`
         font-weight: bold;
         color: #7A90E2;
     }
-    input {
+    & input[type="text"] {
         margin-bottom: 3px;
         border: 2px solid #7A90E2;
         border-radius: 5px;
-        width: auto;
+        width: 170px;
         text-align: center;
         overflow: hidden;
         outline: none;
@@ -24,6 +24,29 @@ export const modalBox = css`
             font-weight: bold;
             color: #7A90E2;
         }
+    }
+    & input[type="month"]{
+        position: relative;
+        margin-bottom: 3px;
+        border: 2px solid #7A90E2;
+        border-radius: 5px;
+        width: 170px;
+        text-align: center;
+        overflow: hidden;
+        outline: none;
+        text-align: center;
+        font-weight: bold;
+        color: #ffffff;
+        background-color: #7A90E2;
+    }
+    & input[type="month"]::-webkit-calendar-picker-indicator{
+        box-sizing: border-box;
+        position: absolute;
+        left: 0;
+        opacity: 0;
+        width: 100%;
+        height: 100%;
+    }
     }
 `;
 

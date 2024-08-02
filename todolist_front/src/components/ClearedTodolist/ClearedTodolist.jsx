@@ -14,10 +14,8 @@ function ClearedTodolist() {
             {
                 todolist.filter(todo => todo.state === 1).map(todo => 
                     <div css={s.todoBox} key={todo.todoId}>
-                        <div css={s.ipBox}>
-                            <input type="checkbox" checked={true} disabled={true} />     
-                            <p>{todo.content}</p>
-                        </div>
+                        <input type="checkbox" checked={true} disabled={true} />     
+                        <p>{todo.content}</p>
                     </div>
                 )
             }

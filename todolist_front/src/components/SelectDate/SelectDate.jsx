@@ -5,11 +5,13 @@ import { todoParamsAtom, todolistAtom } from '../../atoms/todolistAtoms';
 import { MdArrowBackIosNew, MdArrowForwardIos } from "react-icons/md";
 import { userAtom } from '../../atoms/userAtoms';
 import { todolistApi } from '../../apis/todoApi';
+import { useRef } from "react";
 
 function SelectDate() {
     const [ user, setUser ] = useRecoilState(userAtom);
     const [ todolist, setTodolist ] = useRecoilState(todolistAtom);
     const [ params, setParams ] = useRecoilState(todoParamsAtom);
+    const dateRef = useRef();
 
 
     const getTodolist = async () => {
@@ -67,7 +69,9 @@ function SelectDate() {
         <>
             <div css={s.layout}>
                 <MdArrowBackIosNew css={s.arrow} onClick={handleArrowOnClick} />
-                    <input type="month" name='registerDate' onChange={handleInputOnChange} value={params.registerDate} />
+                <div css={s.monthContainer}>
+                    <input type="month" id="date" name='registerDate' onChange={handleInputOnChange} value={params.registerDate} ref={dateRef}/>
+                </div>
                 <MdArrowForwardIos css={s.arrow} onClick={handleaddArrowOnClick} />
             </div>
         </>

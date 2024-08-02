@@ -10,6 +10,10 @@ export const layout = css`
     border-radius: 5px;
     padding: 5px 10px;
     height: 60px;
+
+    & h2 {
+        cursor: default;
+    }
 `;
 
 export const logo = css`

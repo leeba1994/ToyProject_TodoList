@@ -24,6 +24,10 @@ export const todoHeader = css`
     width: 100%;
     height: 70px;
     color: #7A90E2;
+
+    & h2 {
+        cursor: default;
+    }
 `;
 
 export const todoBox = css`
@@ -50,6 +54,7 @@ export const todoBox = css`
         font-weight: bold;
         color: #ffffff;
         max-width: 650px;
+        cursor: default;
     }
 `;
 

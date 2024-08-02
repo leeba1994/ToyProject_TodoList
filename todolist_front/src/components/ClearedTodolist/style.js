@@ -39,6 +39,7 @@ export const todoBox = css`
     border-radius: 10px;
     word-break: break-all;
     & input {
+        display: none;
         box-sizing: border-box;
         margin: 10px;
         width: 20px;
@@ -50,5 +51,13 @@ export const todoBox = css`
         color: #ffffff;
         max-width: 650px;
     }
+`;
+
+export const checkIcon = css`
+    box-sizing: border-box;
+    color: #ffffff;
+    margin: 10px;
+    width: 30px;
+    height: 30px;
 `;
 

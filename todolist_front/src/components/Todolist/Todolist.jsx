@@ -15,8 +15,6 @@ function Todolist() {
     const [ checkedBox, setCheckedBox ] = useState(0);
     const [ updateModal, setUpdateModal ] = useState(false);
 
-    const [checked, setChecked] = useState(false);  //테스트
-
     const openUpdateModal = () => {
         setUpdateModal(true);
     }
@@ -43,22 +41,11 @@ function Todolist() {
     }
 
     const handleCheckBoxChange = (e) => {
-        if (e.target.checked) 
-            {  
-                // setChecked(false)
-                console.log(e.target.checked)
-                console.log(checkedBox)
-                setCheckedBox(e.target.value);
-                
-                }
-                else {
-                    setCheckedBox(0);
-                    // setChecked(true)
-            }
-
-        // console.log(e.target.value)
-        // console.log(e.target)
-        // setCheckedBox(e.target.checked ? e.target.value : 0);
+        if (e.target.checked) {  
+            setCheckedBox(e.target.value);
+        } else {
+            setCheckedBox(0);
+        }
         setTodoId(e.target.checked ? e.target.value : 0);
     }
  
@@ -88,12 +75,6 @@ function Todolist() {
         } 
     }
 
-    // useEffect(() => {
-    //     document.addEventListener('click', handleClcikOutside)
-    //     return () => {
-    //         document.removeEventListener('click', handleClcikOutside)
-    //     }
-    // }, [checkBoxRef.current])
     return (
         <>
             <UpdateModal updateModal={updateModal} closeModal={closeModal} />
@@ -103,23 +84,12 @@ function Todolist() {
                     todolist.filter(todo => todo.state === 0).map(todo => 
                         <div css={s.todoBox} key={todo.todoId}>
                             <div css={s.ipBox}>
-
-                            {/* <label className={`${checked ? "checked" : ""} checkboxCard`}>
-                                <input type="checkbox" id="checkTest" onChange={(e) => setChecked(e.target.checked)}/>
-                                    <label htmlFor="checkTest">a</label>
-                            </label> */}
-
                                 <label htmlFor={todo.todoId} >
                                     {
                                         parseInt(checkedBox) === todo.todoId ? <PiCheckCircleFill css={s.checkIcon} /> : <PiCircle css={s.checkIcon}/>
                                     }
                                 </label>
-                                <input id={todo.todoId} type="checkbox" 
-                                // onChange={(e) => setChecked(e.target.checked)}
-                                onChange={handleCheckBoxChange} 
-                                checked={parseInt(checkedBox) === todo.todoId ? true : false} 
-                                value={todo.todoId} ref={checkBoxRef}/>
-
+                                <input id={todo.todoId} type="checkbox" onChange={handleCheckBoxChange} checked={parseInt(checkedBox) === todo.todoId ? true : false} value={todo.todoId} ref={checkBoxRef}/>
                                 <p>{todo.content}</p>
                             </div>
                             {

@@ -19,7 +19,6 @@ function Header(props) {
     }
     
     const defaultDate = nowYearAndMonth.year + "-" + (nowYearAndMonth.month >= 10 ? nowYearAndMonth.month : "0" + nowYearAndMonth.month) ;
-
     const [ user, setUser ] = useRecoilState(userAtom)
     const [ loginState, setLoginState ] = useRecoilState(loginStateAtom);
     const [ todolist, setTodolist ] = useRecoilState(todolistAtom);
@@ -70,13 +69,10 @@ function Header(props) {
             } catch(e) {
                 console.error(e);
             }
-            setTodoParams(todoParams => {
-                return {
-                    ...todoParams,
-                    registerDate: defaultDate
-                }
-            })
             setLoginState(false);
+            setTodoParams({
+                registerDate: defaultDate
+            })
         }
         
     }

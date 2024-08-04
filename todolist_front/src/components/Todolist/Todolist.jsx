@@ -76,10 +76,10 @@ function Todolist() {
     }
 
     return (
-        <>
+        <div css={s.layout}>
             <UpdateModal updateModal={updateModal} closeModal={closeModal} />
+            <div css={s.todoHeader}><h2>To Do</h2></div>
             <div css={s.container}>
-                <div css={s.todoHeader}><h2>To Do</h2></div>    
                 {
                     todolist.filter(todo => todo.state === 0).map(todo => 
                         <div css={s.todoBox} key={todo.todoId}>
@@ -104,7 +104,7 @@ function Todolist() {
                     )
                 }
             </div>
-        </>
+        </div>
        
     );
 }

@@ -54,9 +54,6 @@ function WriteModal({ writeModal, closeModal}) {
             state: 0,
             userId: todoParams.userId
         })
-        setTodoParams({
-            registerDate: writeInput.registerDate,
-        })
         closeModal();
     }
 

@@ -52,7 +52,6 @@ function RegisterModal({registerModal, closeModal}) {
         const response = await duplicateUserName(registerUser.userName);
         console.log(response.data);
         response.data === 1 ? alert("Usable ID") : alert("Duplicate ID")
-        
     }
 
     useEffect(() => {

@@ -33,8 +33,11 @@ function LoginHook() {
     }, [todoParams])
 
     useEffect(() => {
-        setTodoParams({
-            userId: user.userId
+        setTodoParams(todoParams => {
+            return {
+                ...todoParams,
+                userId: user.userId
+            }
         })
     }, [user])
 

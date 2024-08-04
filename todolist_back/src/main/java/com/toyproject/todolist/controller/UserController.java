@@ -27,7 +27,6 @@ public class UserController {
         log.info("user: {}", user);
 
         return ResponseEntity.ok().body(user);
-
     }
 
     @GetMapping("/session/remove")

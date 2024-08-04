@@ -10,12 +10,6 @@ import { todoParamsAtom, todolistAtom } from '../../atoms/todolistAtoms';
 function WriteModal({ writeModal, closeModal}) {
     const [ todolist, setTodolist ] = useRecoilState(todolistAtom);
     const [ todoParams, setTodoParams ] = useRecoilState(todoParamsAtom);
-    const nowYearAndMonth = {
-        year: new Date().getFullYear(),
-        month: new Date().getMonth()
-    }
-
-    const [ registerDate, setRegisterDate ] = useState(nowYearAndMonth.year + "-" + (nowYearAndMonth.month - 10 > -1 ? "" : "0") + (nowYearAndMonth.month + 1));
     const [ writeInput, setWriteInput ] = useState({
         content: "",
         registerDate: todoParams.registerDateregisterDate,
@@ -59,6 +53,9 @@ function WriteModal({ writeModal, closeModal}) {
             registerDate: todoParams.registerDate,
             state: 0,
             userId: todoParams.userId
+        })
+        setTodoParams({
+            registerDate: writeInput.registerDate,
         })
         closeModal();
     }

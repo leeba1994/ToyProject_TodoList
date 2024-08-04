@@ -1,17 +1,13 @@
 import { css } from "@emotion/react";
 
-export const container = css`
+export const layout = css`
     box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    margin-right: 10px;
     border: 2px solid #7A90E2;
     border-radius: 10px;
-    padding: 10px;
     width: 50%;
-    height: 100%;
-    background-color: #fafafa;
-    overflow-y: auto;
-    ::-webkit-scrollbar {
-        display: none;
-    }
 `;
 
 export const todoHeader = css`
@@ -23,7 +19,23 @@ export const todoHeader = css`
     width: 100%;
     height: 70px;
     color: #7A90E2;
-    cursor: default;
+    & h2 {
+        cursor: default;
+    }
+`;
+
+
+export const container = css`
+    box-sizing: border-box;
+    border-radius: 10px;
+    padding: 10px;
+    width: 100%;
+    height: 100%;
+    background-color: #fafafa;
+    overflow-y: auto;
+    ::-webkit-scrollbar {
+        display: none;
+    }
 `;
 
 export const todoBox = css`

@@ -45,6 +45,12 @@ function WriteModal({ writeModal, closeModal}) {
         if(response.status === 200) {
             alert("TODO 등록 완료.");
             await getTodolist();
+            setTodoParams(todoParams => {
+                return {
+                    ...todoParams,
+                    registerDate: writeInput.registerDate
+                }
+            })
         }else {
             alert("TODO 등록 실패.");
         }

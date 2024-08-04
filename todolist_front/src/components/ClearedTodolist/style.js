@@ -46,7 +46,7 @@ export const todoBox = css`
     margin-bottom: 10px;
     border: 2px solid #7A90E2;
     border-radius: 10px;
-    padding-left: 5px;
+    padding: 10px 10px 10px 0px ;
     width: 100%;
     background-color: #7A90E2;
     word-break: break-all;

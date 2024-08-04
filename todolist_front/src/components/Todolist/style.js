@@ -21,7 +21,6 @@ export const todoHeader = css`
     display: flex;
     justify-content: center;
     align-items: center;
-    box-sizing: border-box;
     margin-bottom: 10px;
     border-radius: 5px;
     width: 100%;
@@ -39,7 +38,6 @@ export const todoBox = css`
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    box-sizing: border-box;
     margin-bottom: 10px;
     border: 2px solid #7A90E2;
     border-radius: 10px;
@@ -52,7 +50,6 @@ export const ipBox = css`
     box-sizing: content-box;
     display: flex;
     align-items: center;
-    box-sizing: border-box;
     padding-left: 5px;
     width: 100%;
     word-break: break-all;
@@ -66,7 +63,6 @@ export const ipBox = css`
 
     }
     p { 
-
         font-size: 20px;
         font-weight: bold;
         color: #7A90E2;

@@ -19,6 +19,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public int registerUser(ReqRegisterUserDto reqRegisterUserDto) {
+
         User user = User.builder()
                 .userName(reqRegisterUserDto.getUserName())
                 .password(reqRegisterUserDto.getPassword())

@@ -6,7 +6,6 @@ import { duplicateUserName, registerApi } from '../../apis/userApi';
 /** @jsxImportSource @emotion/react */
 
 function RegisterModal({registerModal, closeModal}) {
-    
     const [ registerUser, setRegisterUser ] = useState({
         userName: "",
         password: "",

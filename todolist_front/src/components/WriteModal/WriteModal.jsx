@@ -2,14 +2,12 @@ import React, { useEffect, useState } from 'react';
 /** @jsxImportSource @emotion/react */
 import * as s from "./style";
 import { useRecoilState } from 'recoil';
-import { userAtom } from '../../atoms/userAtoms';
 import ReactModal from 'react-modal';
 import { registerTodoApi, todolistApi } from '../../apis/todoApi';
 import { todoParamsAtom, todolistAtom } from '../../atoms/todolistAtoms';
 /** @jsxImportSource @emotion/react */
 
 function WriteModal({ writeModal, closeModal}) {
-    const [ user, setUser ] = useRecoilState(userAtom);
     const [ todolist, setTodolist ] = useRecoilState(todolistAtom);
     const [ todoParams, setTodoParams ] = useRecoilState(todoParamsAtom);
     const nowYearAndMonth = {
@@ -20,9 +18,9 @@ function WriteModal({ writeModal, closeModal}) {
     const [ registerDate, setRegisterDate ] = useState(nowYearAndMonth.year + "-" + (nowYearAndMonth.month - 10 > -1 ? "" : "0") + (nowYearAndMonth.month + 1));
     const [ writeInput, setWriteInput ] = useState({
         content: "",
-        registerDate: registerDate,
+        registerDate: todoParams.registerDateregisterDate,
         state: 0,
-        userId: user.userId
+        userId: todoParams.userId
     })
 
     const getTodolist = async () => {
@@ -39,7 +37,7 @@ function WriteModal({ writeModal, closeModal}) {
             return {
                 ...writeInput,
                 [e.target.name]: e.target.value,
-                userId: user.userId
+                userId: todoParams.userId
             }
         })
     }
@@ -58,9 +56,9 @@ function WriteModal({ writeModal, closeModal}) {
         }
         setWriteInput({
             content: "",
-            registerDate: registerDate,
+            registerDate: todoParams.registerDate,
             state: 0,
-            userId: user.userId
+            userId: todoParams.userId
         })
         closeModal();
     }
@@ -68,7 +66,7 @@ function WriteModal({ writeModal, closeModal}) {
     useEffect(() => {
         setWriteInput({
             content: "",
-            registerDate: registerDate,
+            registerDate: todoParams.registerDate,
         })
     }, [writeModal])
 

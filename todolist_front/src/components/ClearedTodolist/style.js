@@ -19,28 +19,24 @@ export const todoHeader = css`
     display: flex;
     justify-content: center;
     align-items: center;
-    box-sizing: border-box;
     margin-bottom: 10px;
     width: 100%;
     height: 70px;
     color: #7A90E2;
-
-    & h2 {
-        cursor: default;
-    }
+    cursor: default;
 `;
 
 export const todoBox = css`
     box-sizing: border-box;
-    display: flex;
     flex-grow: 1;
+    display: flex;
     align-items: center;
     margin-bottom: 10px;
+    border: 2px solid #7A90E2;
+    border-radius: 10px;
     padding-left: 5px;
     width: 100%;
     background-color: #7A90E2;
-    border: 2px solid #7A90E2;
-    border-radius: 10px;
     word-break: break-all;
     & input {
         display: none;
@@ -50,19 +46,19 @@ export const todoBox = css`
         height: 20px;
     }
     & p {
+        max-width: 650px;
         font-size: 20px;
         font-weight: bold;
         color: #ffffff;
-        max-width: 650px;
         cursor: default;
     }
 `;
 
 export const checkIcon = css`
     box-sizing: border-box;
-    color: #ffffff;
     margin: 10px;
     width: 30px;
     height: 30px;
+    color: #ffffff;
 `;
 

@@ -8,13 +8,18 @@ import { invalidateSessionApi } from '../../apis/userApi';
 import LoginModal from '../LoginModal/LoginModal';
 import RegisterModal from '../RegisterModal/RegisterModal';
 import WriteModal from '../WriteModal/WriteModal';
-import { searchTodo, todolistApi } from '../../apis/todoApi';
+import { searchTodo } from '../../apis/todoApi';
 import { todolistAtom, todoParamsAtom } from '../../atoms/todolistAtoms';
-import { BsNutFill } from 'react-icons/bs';
-import LoginHook from '../../hooks/LoginHook';
 ReactModal.setAppElement("#root");
 
 function Header(props) {
+    const nowYearAndMonth = {    
+        year: new Date().getFullYear(),
+        month: (new Date().getMonth() + 1)
+    }
+    
+    const defaultDate = nowYearAndMonth.year + "-" + (nowYearAndMonth.month >= 10 ? nowYearAndMonth.month : "0" + nowYearAndMonth.month) ;
+
     const [ user, setUser ] = useRecoilState(userAtom)
     const [ loginState, setLoginState ] = useRecoilState(loginStateAtom);
     const [ todolist, setTodolist ] = useRecoilState(todolistAtom);
@@ -65,6 +70,12 @@ function Header(props) {
             } catch(e) {
                 console.error(e);
             }
+            setTodoParams(todoParams => {
+                return {
+                    ...todoParams,
+                    registerDate: defaultDate
+                }
+            })
             setLoginState(false);
         }
         

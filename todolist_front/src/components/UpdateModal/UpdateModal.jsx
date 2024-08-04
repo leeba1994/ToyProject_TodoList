@@ -1,25 +1,19 @@
 /** @jsxImportSource @emotion/react */
 import * as s from "./style";
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import ReactModal from 'react-modal';
 import { useRecoilState } from 'recoil';
 import { todoIdAtom, todoParamsAtom, todolistAtom } from '../../atoms/todolistAtoms';
 import { todolistApi, updateTodoContent } from '../../apis/todoApi';
 
 function UpdateModal({ updateModal, closeModal }) {
-    const nowYearAndMonth = {    
-        year: new Date().getFullYear(),
-        month: (new Date().getMonth() + 1)
-    }
-    const defaultDate = nowYearAndMonth.year + "-" + (nowYearAndMonth.month >= 10 ? nowYearAndMonth.month : "0" + nowYearAndMonth.month);
-
     const [ todoId, setTodoId ] = useRecoilState(todoIdAtom);
     const [ todoParams, setTodoParams ] = useRecoilState(todoParamsAtom);
     const [ todolist, setTodolist ] = useRecoilState(todolistAtom);
     const [ updateTodo, setUpdateTodo ] = useState({
         todoId: 0,
         content: "",
-        registerDate: defaultDate
+        registerDate: todoParams.registerDate
     })
 
     const getTodolist = async () => {
@@ -59,7 +53,7 @@ function UpdateModal({ updateModal, closeModal }) {
     useEffect(() => {
         setUpdateTodo({
             content: "",
-            registerDate: defaultDate
+            registerDate: todoParams.registerDate
         })
     }, [updateModal])
 

@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import { useRecoilState } from 'recoil';
 import { loginStateAtom, userAtom } from '../atoms/userAtoms';
 import { sessionApi } from '../apis/userApi';

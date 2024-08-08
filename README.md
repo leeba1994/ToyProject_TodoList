@@ -25,7 +25,7 @@
 <table >
     <thead>
         <tr>
-            <th align="center"><span>이동윤(팀장)</span></th>
+            <th align="center"><span>이병안(팀장)</span></th>
             <th align="center"><span>이지언</span></th>
             <th align="center"><span>서현욱</span></th>
             <th align="center"><span>김종현</span></th>
